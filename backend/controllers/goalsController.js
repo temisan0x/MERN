@@ -4,7 +4,6 @@
 
 const getGoals = (req, res) => {
     console.log(req.body);
-    
     res.status(200).json({ message: 'Get Goals!' });
 };
 
@@ -13,6 +12,9 @@ const getGoals = (req, res) => {
 //@access PRIVATE
 
 const postGoals = (req, res) => {
+    if (!req.body.text) {
+        res.status(400).json({ message: 'please provide a text!'  });
+    }
     res.status(200).json({ message: 'Set Goals!' });
 };
 
