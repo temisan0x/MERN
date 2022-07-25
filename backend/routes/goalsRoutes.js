@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { } = require('../controllers/goalsController');
 
 router.get('/', (req, res) => {
     res.status(200).json({ message: 'Get Goals!' });
