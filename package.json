@@ -1,0 +1,21 @@
+{
+  "name": "mern-stack",
+  "version": "1.0.0",
+  "description": "learn node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server ",
+    "server": "nodemon backend/server"
+  },
+  "author": "Temisan Momodu",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
