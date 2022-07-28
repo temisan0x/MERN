@@ -1,4 +1,5 @@
 const asyncHandler = require('express-async-handler');
+const Notes = require('../models/notesModel');
 //mongoose returns a promise, we will there require an asyncHandler  by default
 //@desc getNotes
 //@route GET POST /api/notes
@@ -6,7 +7,8 @@ const asyncHandler = require('express-async-handler');
 
 const getNotes = asyncHandler(async(req, res) => {
     console.log(req.body);
-    res.status(200).json({ message: 'Get Notes!' });
+    const notes = await Notes.find();
+    res.status(200).json({ notes});
 });
 
 //@desc postNotes
