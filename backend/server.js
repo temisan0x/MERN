@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());    
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/goals', require('./routes/goalsRoutes'));
+app.use('/api/notes', require('./routes/notesRoutes'));
 
 app.use(errorHandler)
 
