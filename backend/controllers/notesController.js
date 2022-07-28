@@ -9,7 +9,6 @@ const getNotes = asyncHandler(async(req, res) => {
     console.log(req.body);
     const notes = await Note.find();
     res.status(200).json(notes);
-    
 });
 
 //@desc postNotes
@@ -21,7 +20,10 @@ const setNotes = asyncHandler(async(req, res) => {
         res.status(400)
         throw new Error('Please add a text field');
     }
-    res.status(200).json({ message: 'Set Notes!' });
+    const notes = await Note.create({
+        text: req.body.text,
+    })
+    res.status(200).json(notes);
 });
 
 //@desc updateNote
