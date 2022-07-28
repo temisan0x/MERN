@@ -20,10 +20,10 @@ const setNotes = asyncHandler(async(req, res) => {
         res.status(400)
         throw new Error('Please add a text field');
     }
-    const notes = await Note.create({
+    const note = await Note.create({
         text: req.body.text,
     })
-    res.status(200).json(notes);
+    res.status(200).json(note);
 });
 
 //@desc updateNote

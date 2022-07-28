@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
 
 const notesSchema = mongoose.Schema({
-    name: {
+    text: {
         type: String,
-        required: [true, "Please add a text value"],
-    },
-    description: {
-        type: String,
-        required: [true, "Please add a description value"]
+        required: [true, "Please add a title value"]
     }
 }, {
     timestamps: true
