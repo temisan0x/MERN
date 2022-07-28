@@ -30,8 +30,16 @@ const setNotes = asyncHandler(async(req, res) => {
 //@route  update /api/notes
 //@access PRIVATE
 
-const updateNote = asyncHandler(async(req, res) => {
-    res.status(200).json({ message: `UpdateNote! ${req.params.id}` });
+const updateNote = asyncHandler(async (req, res) => {
+    const goal = await Note.findById(req.params.id);
+    if (!goal) { 
+        res.status(400);
+        throw new Error('Note not found');
+    }
+    const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+    })
+    res.status(200).json(updatedNote);
 })
 
 //@desc deleteNote
