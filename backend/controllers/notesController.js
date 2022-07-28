@@ -6,7 +6,7 @@ const asyncHandler = require('express-async-handler');
 
 const getNotes = asyncHandler(async(req, res) => {
     console.log(req.body);
-    res.status(200).json({ message: 'Get Goals!' });
+    res.status(200).json({ message: 'Get Notes!' });
 });
 
 //@desc postNotes
