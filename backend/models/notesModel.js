@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const NotesSchema = mongoose.Schema({
+const notesSchema = mongoose.Schema({
     text: {
         type: String,
         required: [true, "Please add a text value"],
@@ -9,4 +9,4 @@ const NotesSchema = mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model(NotesSchema)
+module.exports = mongoose.model("Note",notesSchema)
