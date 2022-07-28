@@ -7,6 +7,8 @@ const connectDB = require('./config/db')
 
 
 connectDB();
+
+//initialize express server
 const app = express();
 
 //middleware
@@ -17,4 +19,4 @@ app.use('/api/notes', require('./routes/notesRoutes'));
 
 app.use(errorHandler)
 
-app.listen(port, () => console.log(`Server started on ${port}`));
+app.listen(port, () => console.log(`Server started on ${port}`)); 

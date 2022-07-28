@@ -44,4 +44,4 @@ module.exports = {
     setNotes,
     updateNote,
     deleteNote
-}
+} 
