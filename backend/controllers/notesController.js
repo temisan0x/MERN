@@ -31,8 +31,8 @@ const setNotes = asyncHandler(async(req, res) => {
 //@access PRIVATE
 
 const updateNote = asyncHandler(async (req, res) => {
-    const goal = await Note.findById(req.params.id);
-    if (!goal) { 
+    const note = await Note.findById(req.params.id);
+    if (!note) { 
         res.status(400);
         throw new Error('Note not found');
     }
@@ -46,8 +46,16 @@ const updateNote = asyncHandler(async (req, res) => {
 //@route DELETE POST /api/notes
 //@access PRIVATE
 
-const deleteNote = asyncHandler(async(req, res) => {
-    res.status(200).json({ message: `DeleteNote! ${req.params.id}` });
+const deleteNote = asyncHandler(async (req, res) => {
+    const note = await Note.findById(req.params.id);
+    if (!note) {
+        res.status(400);
+        throw new Error('Note not found');
+    }
+
+    await note.remove()
+
+    res.status(200).json({message: `Note ${req.params.id} successfully deleted` });
 })
 
 module.exports = {
