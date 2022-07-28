@@ -1,4 +1,4 @@
-const asyncHandler = require('express-async-handler ');
+const asyncHandler = require('express-async-handler');
 //mongoose returns a promise, we will there require an asyncHandler  by default
 //@desc getGoals
 //@route GET POST /api/goals
