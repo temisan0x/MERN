@@ -16,7 +16,7 @@ const getNotes = asyncHandler(async(req, res) => {
 //@access PRIVATE
 
 const setNotes = asyncHandler(async(req, res) => {
-    if (!req.body.text) {
+    if (!req.body.text ) {
         res.status(400)
         throw new Error('Please add a text field');
     }
