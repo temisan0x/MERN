@@ -1,7 +1,7 @@
 const asyncHandler = require('express-async-handler');
 //mongoose returns a promise, we will there require an asyncHandler  by default
-//@desc getGoals
-//@route GET POST /api/goals
+//@desc getNotes
+//@route GET POST /api/notes
 //@access PRIVATE
 
 const getNotes = asyncHandler(async(req, res) => {
@@ -9,8 +9,8 @@ const getNotes = asyncHandler(async(req, res) => {
     res.status(200).json({ message: 'Get Goals!' });
 });
 
-//@desc postGoals
-//@route POST /api/goals
+//@desc postNotes
+//@route POST /api/notes
 //@access PRIVATE
 
 const setNotes = asyncHandler(async(req, res) => {
@@ -21,25 +21,25 @@ const setNotes = asyncHandler(async(req, res) => {
     res.status(200).json({ message: 'Set Notes!' });
 });
 
-//@desc updateGoals
-//@route  update /api/goals
+//@desc updateNote
+//@route  update /api/notes
 //@access PRIVATE
 
-const updateNotes = asyncHandler(async(req, res) => {
-    res.status(200).json({ message: `UpdateGoal! ${req.params.id}` });
+const updateNote = asyncHandler(async(req, res) => {
+    res.status(200).json({ message: `UpdateNote! ${req.params.id}` });
 })
 
-//@desc deleteGoals
-//@route DELETE POST /api/goals
+//@desc deleteNote
+//@route DELETE POST /api/notes
 //@access PRIVATE
 
-const deleteNotes = asyncHandler(async(req, res) => {
-    res.status(200).json({ message: `DeleteGoal! ${req.params.id}` });
+const deleteNote = asyncHandler(async(req, res) => {
+    res.status(200).json({ message: `DeleteNote! ${req.params.id}` });
 })
 
 module.exports = {
     getNotes,
     setNotes,
-    updateNotes,
-    deleteNotes
+    updateNote,
+    deleteNote
 }
