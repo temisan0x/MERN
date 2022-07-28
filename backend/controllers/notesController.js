@@ -7,8 +7,9 @@ const Note = require('../models/notesModel');
 
 const getNotes = asyncHandler(async(req, res) => {
     console.log(req.body);
-    // const notes = await Note.find();
-    res.status(200).json({ message: 'hrllo'});
+    const notes = await Note.find();
+    res.status(200).json(notes);
+    // res.status(200).json({ message: 'Get Notes'});
 });
 
 //@desc postNotes
