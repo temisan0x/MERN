@@ -59,9 +59,8 @@ const deleteNote = asyncHandler(async (req, res) => {
         throw new Error('Note not found');
     }
 
-    await note.remove()
-
-    res.status(200).json({ message: `Note ${req.params.id} successfully deleted` });
+    await Note.remove()
+    res.status(200).json({id: req.params.id});
 })
 
 module.exports = {
