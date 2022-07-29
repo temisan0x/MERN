@@ -5,9 +5,9 @@ const Note = require('../models/notesModel');
 //@route GET POST /api/notes
 //@access PRIVATE
 
-const getNotes = asyncHandler(async(req, res) => {
-    console.log(req.body); 
-    const notes = await Note.find();//mongoose Note model
+const getNotes = asyncHandler(async (req, res) => {
+    console.log(req.body);
+    const notes = await Note.find();
     res.status(200).json(notes);
 });
 
@@ -15,15 +15,15 @@ const getNotes = asyncHandler(async(req, res) => {
 //@route POST /api/notes/
 //@access PRIVATE
 
-const setNotes = asyncHandler(async(req, res) => {
-    if (!req.body.text ) {
+const setNotes = asyncHandler(async (req, res) => {
+    if (!req.body.text) {
         res.status(400)
         //client error handler
         throw new Error('Please add a text field');
     }
     //Submitted a payload of data
     const note = await Note.create({
-        text: req.body.text,
+        text: req.body.text
     })
     res.status(200).json(note);
 });
@@ -34,12 +34,13 @@ const setNotes = asyncHandler(async(req, res) => {
 
 const updateNote = asyncHandler(async (req, res) => {
     const note = await Note.findById(req.params.id);
-    if (!note) { 
+    if (!note) {
         res.status(400);
         throw new Error('Note not found');
     }
     //Submitted a payload of data && an id
-    const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, {
+    const updatedNote = await Note.findByIdAndUpdate(req.params.id,
+        req.body, {
         new: true,
     })
     res.status(200).json(updatedNote);
@@ -58,7 +59,7 @@ const deleteNote = asyncHandler(async (req, res) => {
 
     await note.remove()
 
-    res.status(200).json({message: `Note ${req.params.id} successfully deleted` });
+    res.status(200).json({ message: `Note ${req.params.id} successfully deleted` });
 })
 
 module.exports = {
