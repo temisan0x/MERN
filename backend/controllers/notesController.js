@@ -42,8 +42,9 @@ const updateNote = asyncHandler(async (req, res) => {
     const updatedNote = await Note.findByIdAndUpdate(
         req.params.id,
         req.body, {
-        new: true,
-    })
+            new: true
+        }
+    )
     res.status(200).json(updatedNote);
 })
 
