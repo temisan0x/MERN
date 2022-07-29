@@ -6,20 +6,22 @@ const Note = require('../models/notesModel');
 //@access PRIVATE
 
 const getNotes = asyncHandler(async(req, res) => {
-    console.log(req.body);
+    console.log(req.body); 
     const notes = await Note.find();
     res.status(200).json(notes);
 });
 
 //@desc postNotes
-//@route POST /api/notes
+//@route POST /api/notes/
 //@access PRIVATE
 
 const setNotes = asyncHandler(async(req, res) => {
     if (!req.body.text ) {
         res.status(400)
+        //client error handler
         throw new Error('Please add a text field');
     }
+    //Submitted a payload of data
     const note = await Note.create({
         text: req.body.text,
     })
@@ -27,7 +29,7 @@ const setNotes = asyncHandler(async(req, res) => {
 });
 
 //@desc updateNote
-//@route  update /api/notes
+//@route  update /api/notes/:id
 //@access PRIVATE
 
 const updateNote = asyncHandler(async (req, res) => {
@@ -36,14 +38,15 @@ const updateNote = asyncHandler(async (req, res) => {
         res.status(400);
         throw new Error('Note not found');
     }
+    //Submitted a payload of data && an id
     const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
     })
     res.status(200).json(updatedNote);
 })
 
-//@desc deleteNote
-//@route DELETE POST /api/notes
+//@desc deleteNote 
+//@route DELETE POST /api/notes/:id
 //@access PRIVATE
 
 const deleteNote = asyncHandler(async (req, res) => {
