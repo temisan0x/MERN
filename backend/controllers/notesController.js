@@ -7,7 +7,7 @@ const Note = require('../models/notesModel');
 
 const getNotes = asyncHandler(async(req, res) => {
     console.log(req.body); 
-    const notes = await Note.find();
+    const notes = await Note.find();//mongoose Note model
     res.status(200).json(notes);
 });
 
