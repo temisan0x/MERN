@@ -15,8 +15,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //routes
 app.use(
-    '/api/notes', require('./routes/notesRoutes')
+    '/api/notes', require('./routes/noteRoutes')
 );
+app.use(
+    '/api/users', require('./routes/u')
+)
 //end-point error handler
 app.use(errorHandler)
 
