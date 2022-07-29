@@ -39,7 +39,8 @@ const updateNote = asyncHandler(async (req, res) => {
         throw new Error('Note not found');
     }
     //Submitted a payload of data && an id
-    const updatedNote = await Note.findByIdAndUpdate(req.params.id,
+    const updatedNote = await Note.findByIdAndUpdate(
+        req.params.id,
         req.body, {
         new: true,
     })
