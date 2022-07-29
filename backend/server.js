@@ -18,7 +18,7 @@ app.use(
     '/api/notes', require('./routes/noteRoutes')
 );
 app.use(
-    '/api/users', require('./routes/u')
+    '/api/users', require('./routes/userRoutes')
 )
 //end-point error handler
 app.use(errorHandler)
