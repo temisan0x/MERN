@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+//field for data field resource
 
 const notesSchema = mongoose.Schema({
     text: {
@@ -7,6 +8,6 @@ const notesSchema = mongoose.Schema({
     },
 },{
     timestamps: true
-},);
+});
 
 module.exports = mongoose.model("Note",notesSchema)
