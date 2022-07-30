@@ -6,4 +6,4 @@ const {getNotes, setNotes,updateNote,deleteNote} = require('../controllers/notes
 router.route('/').get(getNotes).post(setNotes);
 router.route('/:id').put(updateNote).delete(deleteNote);
 
-module.exports = router 
+module.exports = router;
