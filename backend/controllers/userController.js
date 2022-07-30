@@ -13,7 +13,23 @@ const registerUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Please provide all fields');
     }
-    res.json({ message: 'Registration user.' });
+    //if user already exists
+    const userExist = await User.findOne({ name, email });
+    if (!userExist) {
+        res.status(404);
+        throw new Error('User already exists')
+    };
+    //Hash of user password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    //create user
+    const user = await User.create({
+        name,
+        email,
+        password: hashedPassword,
+    })
+    res.json({ message: 'Register user.' });
 });
 
 // @desc Authenticate user
