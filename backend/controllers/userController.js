@@ -14,8 +14,8 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error('Please provide all fields');
     }
     //if user already exists
-    const userExist = await User.findOne({ name, email });
-    if (!userExist) {
+    const userExist = await User.findOne({email });
+    if (userExist) {
         res.status(404);
         throw new Error('User already exists')
     };
@@ -28,8 +28,15 @@ const registerUser = asyncHandler(async (req, res) => {
         name,
         email,
         password: hashedPassword,
-    })
-    res.json({ message: 'Register user.' });
+    });
+
+    if (user) {
+        res.status(201).json({
+            _id: user.id,
+            name: user.name,
+            email: user.email,
+        })
+    }
 });
 
 // @desc Authenticate user
@@ -50,4 +57,4 @@ const getUser = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = {registerUser, loginUser, getUser}
+module.exports = { registerUser, loginUser, getUser }
