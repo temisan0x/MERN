@@ -20,7 +20,7 @@ const loginUser = (req, res) => {
 //@access Public
 
 const getUser = (req, res) => {
-    res.json({message: 'Registration successful.'});
+    res.json({message: 'user data displayed'});
 }
 
 
