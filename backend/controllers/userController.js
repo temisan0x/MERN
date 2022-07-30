@@ -36,6 +36,9 @@ const registerUser = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
         })
+    } else {
+        res.status(500)
+        throw new Error('User not found')
     }
 });
 
