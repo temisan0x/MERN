@@ -8,20 +8,36 @@ const connectDB = require('../config/db')
 
 connectDB();
 
-//initialize express server
+/**
+ * @params initialize express server;
+ */
+
 const app = express();
-//middleware
+
+/**
+ * @params middleware;
+ */
+
 app.use(express.json());    
 app.use(express.urlencoded({ extended: false }));
-//routes
+
+/**
+ * @params user && notes routes;
+ */
+
 app.use(
     '/api/notes', require('../routes/noteRoutes')
 );
 app.use(
     '/api/users', require('../routes/userRoutes')
 )
-//end-point error handler
+
+/**
+ * @params end-point error handler
+ */
+
 app.use(errorHandler)
 
 app.listen(port, console.log(`Server started at port ${port} `));
-//understanding the anatomy of mongoose
+
+//@NB: understanding the anatomy of mongoose
