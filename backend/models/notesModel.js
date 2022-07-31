@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 //field for data field resource
+//every notes is associated with a specific user
 
 const notesSchema = mongoose.Schema({
     user: {
