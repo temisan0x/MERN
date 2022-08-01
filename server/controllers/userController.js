@@ -86,7 +86,13 @@ const loginUser = asyncHandler(async (req, res) => {
 //@access Private (protect user routes from concurrent access)
 
 const getUser = asyncHandler(async (req, res) => {
-    res.json({ message: 'user data displayed' });
+    const { _id, name, email } = await User.findById(req.user.id);
+    res.status(200).json({
+        _id: _id,
+        name,
+        email,
+    })
+    // res.json({ message: 'user data displayed' });
 });
 
 
