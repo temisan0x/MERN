@@ -7,7 +7,7 @@ const Note = require('../models/notesModel');
 
 const getNotes = asyncHandler(async (req, res) => {
     console.log(req.body);
-    const notes = await Note.find();
+    const notes = await Note.find({user: req.user.id});//get specific user notes
     res.status(200).json(notes);
 });
 
@@ -23,6 +23,7 @@ const setNotes = asyncHandler(async (req, res) => {
     }
     //Submitted a payload of data
     const note = await Note.create({
+        user: req.user.id,
         text: req.body.text
     })
     res.status(200).json(note);
