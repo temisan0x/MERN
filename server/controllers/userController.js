@@ -14,13 +14,13 @@ const registerUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Please provide all fields');
     }
-    //if user already exists
+    //check if user already exists
     const userExist = await User.findOne({email });
     if (userExist) {
         res.status(404);
-        throw new Error('User already exists')
+        throw new Error('User already exists');
     };
-    //Hash of user password
+    //generate salt to Hash user password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
