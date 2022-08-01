@@ -4,8 +4,8 @@
   "description": "learn node.js",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server ",
-    "server": "nodemon backend/server"
+    "start": "node server/server ",
+    "server": "nodemon server/server"
   },
   "author": "Temisan Momodu",
   "license": "MIT",
