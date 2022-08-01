@@ -6,7 +6,7 @@ const notesSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'User' //associate user with notes
     },
     text: {
         type: String,
