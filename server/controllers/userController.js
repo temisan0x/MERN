@@ -3,6 +3,14 @@ const bcrypt = require('bcryptjs'); //encrypt & hash user password
 const asyncHandler = require('express-async-handler');
 const User = require('../models/userModel');
 
+//Generate a JWT
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: '30d',
+    })
+}
+
+
 // @desc Register new user
 //@route POST /api/users
 //@access Public
@@ -75,11 +83,5 @@ const getUser = asyncHandler(async (req, res) => {
     res.json({ message: 'user data displayed' });
 });
 
-//Generate a JWT
-const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: '30d',
-    })
-}
 
 module.exports = { registerUser, loginUser, getUser }
