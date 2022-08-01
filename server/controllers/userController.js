@@ -38,6 +38,12 @@ const registerUser = asyncHandler(async (req, res) => {
         email,
         password: hashedPassword,
     });
+//Generate a JWT
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: '30d',
+    })
+}
 
     if (user) {
         res.status(201).json({
@@ -77,7 +83,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // @desc Get user data
 //@route POST /api/users/me
-//@access Private
+//@access Private (protect user routes from concurrent access)
 
 const getUser = asyncHandler(async (req, res) => {
     res.json({ message: 'user data displayed' });
