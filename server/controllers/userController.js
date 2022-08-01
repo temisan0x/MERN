@@ -9,13 +9,13 @@ const User = require('../models/userModel');
 
 const registerUser = asyncHandler(async (req, res) => {
     // res.json({ message: 'registerUser'})
-    const { name, email, password } = req.body; 
+    const { name, email, password } = req.body;
     if (!name || !email || !password) {
         res.status(400)
         throw new Error('Please provide all fields');
     }
     //check if user already exists
-    const userExist = await User.findOne({email });
+    const userExist = await User.findOne({ email });
     if (userExist) {
         res.status(404);
         throw new Error('User already exists');
@@ -78,7 +78,7 @@ const getUser = asyncHandler(async (req, res) => {
 //Generate a JWT
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn:'30d',
+        expiresIn: '30d',
     })
 }
 
