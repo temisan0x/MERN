@@ -1,5 +1,5 @@
-import { useState } from "react"
-
+import { useState } from "react";
+import { AiOutlineArrowDown} from 'react-icons/ai';
 function Register() {
 
     const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ function Register() {
         <>
             <section className="heading">
                 <h1>Register</h1>
-                <p>Please create an account</p>
+                <p>Please create an account <AiOutlineArrowDown/></p>
             </section>
             <section className="form" onSubmit={onSubmit}>
                 <form>
