@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server/server ",
     "server": "nodemon server/server",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Temisan Momodu",
   "license": "MIT",
@@ -20,6 +21,7 @@
     "mongoose": "^6.4.6"
   },
   "devDependencies": {
+    "concurrently": "^7.3.0",
     "nodemon": "^2.0.19"
   }
 }
