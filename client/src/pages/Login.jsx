@@ -3,11 +3,11 @@ import { AiOutlineArrowDown} from 'react-icons/ai';
 function Login() {
 
     const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
+        email: '',
+        password: '',
+    })
 
-    const { email, password} = formData;
+    const { email, password } = formData;
 
     function onChange(e) {
         return setFormData((prevValue) => ({
