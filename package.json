@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server/server ",
-    "server": "nodemon server/server"
+    "server": "nodemon server/server",
+    "client": "npm start --prefix client"
   },
   "author": "Temisan Momodu",
   "license": "MIT",
