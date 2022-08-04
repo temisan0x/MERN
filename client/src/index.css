@@ -65,6 +65,7 @@ h3 {
 .header ul li a {
   display: flex;
   align-items: center;
+  transition: 1s ease-in;
 }
 
 .header ul li a:hover {
