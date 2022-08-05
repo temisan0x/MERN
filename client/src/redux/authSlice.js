@@ -11,6 +11,10 @@ const initialState = {
     message: ""
 };
 
+
+//Register User
+
+
 const authSlice = createSlice({
     name: "auth",
     initialState,
