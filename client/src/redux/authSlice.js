@@ -22,7 +22,9 @@ const authSlice = createSlice({
             state.message = "";
         }
     },
-    extraReducers: {},
+    extraReducers: {
+        //thunk function
+    },
 });
 
 export default authSlice.reducer;
