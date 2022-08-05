@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-//Get user from localStorage
-const user = localStorage.getItem('user');
+//Get user (data) from localStorage
+const user = JSON.parse(localStorage.getItem('user'));
 
 const initialState = {
     user: user ? null : undefined,
@@ -22,7 +22,7 @@ const authSlice = createSlice({
             state.message = "";
         }
     },
-    extraReducers: {
+    extraReducers:() => {
         //thunk function
     },
 });
