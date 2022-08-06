@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = '/api/users/';
 
-//post user data
+//post user data to server
 //store data to local storage
 
 const register = async (userData) => {
