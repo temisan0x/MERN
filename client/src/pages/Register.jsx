@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {useSelector, useDispatch} from 'react-redux'
 import { AiOutlineArrowDown} from 'react-icons/ai';
 function Register() {
 
@@ -21,7 +22,6 @@ function Register() {
     const onSubmit = (e) => {
         e.preventDefault()
     }
-
     return (
         <>
             <section className="heading">
