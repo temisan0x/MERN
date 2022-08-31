@@ -9,7 +9,7 @@ function Dashboard() {
 
     useEffect(() => {
         if (!user) {
-            navigate("/dashboard");
+            navigate("/login");
         }
     }, [user, navigate]);
 
