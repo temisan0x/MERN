@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
 function Dashboard() {
-    const navigate = useNavigation();
+    const navigate = useNavigate();
     const { user } = useSelector((state) => state.auth);
 
     useEffect(() => {
         if (!user) {
-            navigate("/login");
+            navigate("/dashboard");
         }
     }, [user, navigate]);
 
