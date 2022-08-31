@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import {useSelector, useDispatch} from 'react-redux'
-import { AiOutlineArrowDown} from 'react-icons/ai';
-function Register() {
+import { useSelector, useDispatch } from 'react-redux';
+import { AiOutlineArrowDown } from 'react-icons/ai';
 
+function Register() {
+    
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -26,7 +27,7 @@ function Register() {
         <>
             <section className="heading">
                 <h1>Register</h1>
-                <p>Please create an account <AiOutlineArrowDown/></p>
+                <p>Please create an account <AiOutlineArrowDown /></p>
             </section>
             <section className="form" onSubmit={onSubmit}>
                 <form>
